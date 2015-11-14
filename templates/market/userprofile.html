@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>signup</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static "dist/css/bootstrap.min.css" %}">
+        <script type="text/javascript" src="{% static "dist/js/jquery.js" %}"></script>
+        <script type="text/javascript" src="{% static "dist/js/bootstrap.min.js" %}"></script>
+        <style>
+            body{
+                background-color: #dedede;
+            }
+            .container .row .col-md-6 form{
+                background-color: transparent;
+                padding: 20px;
+                border: 2px solid white;
+                border-radius: 10px;;
+            }
+            .container .row .col-md-6 form input{
+                height: 60px;
+                font-size: 30px;
+            }
+            .container .form {
+                margin-top: 100px;
+            }
+            .table{
+                margin-top: 100px;
+                font-size: 2em;
+                text-align: center;
+            }
+            .table tr td:nth-child(1){
+                font-weight: 600;
+                color: #2b669a;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/stocks/">Stocks</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="main-navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="/stocks/stockholder-panel/">WALL</a>
+                        </li>
+                        <li>
+                            <a href="/stocks/logout/">LOGOUT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container"><!-- company list-->
+            <table class="table table-hover table-responsive">
+                {% if user %}
+                    <thead>
+                        <tr>
+                            <td colspan="2" style="text-align: center">USER PROFILE</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>NAME</td>
+                        <td>{{ user.user.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>GENDER</td>
+                        <td>
+                            {% if user.gender == 1 %}
+                                male
+                            {% else %}
+                                female
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HARD CASH</td>
+                        <td>{{ user.hard_asset }}</td>
+                    </tr>
+                {% endif %}
+            </table>
+        </div>
+    </body>
+</html>

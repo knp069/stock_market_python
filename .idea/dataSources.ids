@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Django default" uuid="76ac0ea8-b09b-439d-be7f-6d2cc3f868d0">
+    <database-info product="MySQL" version="5.6.27-0ubuntu1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="stock_db"/>
+    <table name="auth_group" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_group_permission_group_id_689710a9a73b7457_fk_auth_group_id" table="auth_group_permissions" schema="" catalog="stock_db" columns="group_id"/>
+      <exported-key name="auth_user_groups_group_id_33ac548dcf5f8e37_fk_auth_group_id" table="auth_user_groups" schema="" catalog="stock_db" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_group__permission_id_1f49ccbbdc69d2fc_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_group_permission_group_id_689710a9a73b7457_fk_auth_group_id" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group__permission_id_1f49ccbbdc69d2fc_fk_auth_permission_id" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth__content_type_id_508cf46651277a81_fk_django_content_type_id" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="auth_group__permission_id_1f49ccbbdc69d2fc_fk_auth_permission_id" table="auth_group_permissions" schema="" catalog="stock_db" columns="permission_id"/>
+      <exported-key name="auth_user_u_permission_id_384b62483d7071f0_fk_auth_permission_id" table="auth_user_user_permissions" schema="" catalog="stock_db" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+    </table>
+    <table name="auth_user" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="is_superuser" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="254" scale="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="is_active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="date_joined" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_user_groups_user_id_4b5ed4ffdb8fd9b0_fk_auth_user_id" table="auth_user_groups" schema="" catalog="stock_db" columns="user_id"/>
+      <exported-key name="auth_user_user_permissi_user_id_7f0938558328534a_fk_auth_user_id" table="auth_user_user_permissions" schema="" catalog="stock_db" columns="user_id"/>
+      <exported-key name="django_admin_log_user_id_52fdd58701c5f563_fk_auth_user_id" table="django_admin_log" schema="" catalog="stock_db" columns="user_id"/>
+      <exported-key name="market_broker_user_id_2be72b53198c046e_fk_auth_user_id" table="market_broker" schema="" catalog="stock_db" columns="user_id"/>
+      <exported-key name="market_owner_user_id_267b2dc217ee9d59_fk_auth_user_id" table="market_owner" schema="" catalog="stock_db" columns="user_id"/>
+      <exported-key name="market_stock_holder_user_id_4a9f6408c56f2d28_fk_auth_user_id" table="market_stock_holder" schema="" catalog="stock_db" columns="user_id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_user_groups_group_id_33ac548dcf5f8e37_fk_auth_group_id" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_user_groups_user_id_4b5ed4ffdb8fd9b0_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_group_id_33ac548dcf5f8e37_fk_auth_group_id" unique="false" columns="group_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_user_u_permission_id_384b62483d7071f0_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_user_user_permissi_user_id_7f0938558328534a_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_u_permission_id_384b62483d7071f0_fk_auth_permission_id" unique="false" columns="permission_id"/>
+    </table>
+    <table name="celery_taskmeta" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="task_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="result" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="date_done" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="traceback" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="hidden" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="meta" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="task_id" unique="true" columns="task_id"/>
+      <index name="celery_taskmeta_662f707d" unique="false" columns="hidden"/>
+    </table>
+    <table name="celery_tasksetmeta" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="taskset_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="result" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="date_done" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="hidden" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="taskset_id" unique="true" columns="taskset_id"/>
+      <index name="celery_tasksetmeta_662f707d" unique="false" columns="hidden"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="object_id" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="djang_content_type_id_697914295151027a_fk_django_content_type_id" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="django_admin_log_user_id_52fdd58701c5f563_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="djang_content_type_id_697914295151027a_fk_django_content_type_id" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_user_id_52fdd58701c5f563_fk_auth_user_id" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app_label" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth__content_type_id_508cf46651277a81_fk_django_content_type_id" table="auth_permission" schema="" catalog="stock_db" columns="content_type_id"/>
+      <exported-key name="djang_content_type_id_697914295151027a_fk_django_content_type_id" table="django_admin_log" schema="" catalog="stock_db" columns="content_type_id"/>
+      <index name="django_content_type_app_label_45f3b1d93ec8c61c_uniq" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_migrations" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="applied" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="django_session" schema="" catalog="stock_db" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_de54fa62" unique="false" columns="expire_date"/>
+    </table>
+    <table name="djcelery_crontabschedule" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="minute" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hour" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="day_of_week" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="day_of_month" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="month_of_year" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="djcel_crontab_id_1d8228f5b44b680a_fk_djcelery_crontabschedule_id" table="djcelery_periodictask" schema="" catalog="stock_db" columns="crontab_id"/>
+    </table>
+    <table name="djcelery_intervalschedule" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="every" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="period" sqlType="VARCHAR" precision="24" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="djc_interval_id_20cfc1cad060dfad_fk_djcelery_intervalschedule_id" table="djcelery_periodictask" schema="" catalog="stock_db" columns="interval_id"/>
+    </table>
+    <table name="djcelery_periodictask" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="task" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="args" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="kwargs" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="queue" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="exchange" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="routing_key" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="expires" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="enabled" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="last_run_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="total_run_count" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_changed" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="crontab_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="interval_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="djc_interval_id_20cfc1cad060dfad_fk_djcelery_intervalschedule_id" columns="interval_id" ref-table="djcelery_intervalschedule" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="djcel_crontab_id_1d8228f5b44b680a_fk_djcelery_crontabschedule_id" columns="crontab_id" ref-table="djcelery_crontabschedule" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="name" unique="true" columns="name"/>
+      <index name="djc_interval_id_20cfc1cad060dfad_fk_djcelery_intervalschedule_id" unique="false" columns="interval_id"/>
+      <index name="djcel_crontab_id_1d8228f5b44b680a_fk_djcelery_crontabschedule_id" unique="false" columns="crontab_id"/>
+    </table>
+    <table name="djcelery_periodictasks" schema="" catalog="stock_db" type="TABLE">
+      <column name="ident" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="last_update" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="ident"/>
+    </table>
+    <table name="djcelery_taskstate" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="state" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="task_id" sqlType="VARCHAR" precision="36" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tstamp" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="args" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="kwargs" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="eta" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="expires" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="result" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="traceback" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="runtime" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="retries" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="hidden" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="worker_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="djcelery_t_worker_id_30050731b1c3d3d9_fk_djcelery_workerstate_id" columns="worker_id" ref-table="djcelery_workerstate" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="task_id" unique="true" columns="task_id"/>
+      <index name="djcelery_taskstate_662f707d" unique="false" columns="hidden"/>
+      <index name="djcelery_taskstate_863bb2ee" unique="false" columns="tstamp"/>
+      <index name="djcelery_taskstate_9ed39e2e" unique="false" columns="state"/>
+      <index name="djcelery_taskstate_b068931c" unique="false" columns="name"/>
+      <index name="djcelery_taskstate_ce77e6ef" unique="false" columns="worker_id"/>
+    </table>
+    <table name="djcelery_workerstate" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="hostname" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_heartbeat" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="djcelery_t_worker_id_30050731b1c3d3d9_fk_djcelery_workerstate_id" table="djcelery_taskstate" schema="" catalog="stock_db" columns="worker_id"/>
+      <index name="hostname" unique="true" columns="hostname"/>
+      <index name="djcelery_workerstate_f129901a" unique="false" columns="last_heartbeat"/>
+    </table>
+    <table name="djkombu_message" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="visible" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="sent_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="payload" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="queue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="djkombu_message_queue_id_12778caea7843dd_fk_djkombu_queue_id" columns="queue_id" ref-table="djkombu_queue" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="djkombu_message_46cf0e59" unique="false" columns="visible"/>
+      <index name="djkombu_message_75249aa1" unique="false" columns="queue_id"/>
+      <index name="djkombu_message_df2f2974" unique="false" columns="sent_at"/>
+    </table>
+    <table name="djkombu_queue" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="djkombu_message_queue_id_12778caea7843dd_fk_djkombu_queue_id" table="djkombu_message" schema="" catalog="stock_db" columns="queue_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="market_broker" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gender" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="phone_number" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="market_broker_user_id_2be72b53198c046e_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="market_transac_broker_id_id_57dfa29150cb6323_fk_market_broker_id" table="market_transaction" schema="" catalog="stock_db" columns="broker_id_id"/>
+      <index name="market_broker_user_id_2be72b53198c046e_fk_auth_user_id" unique="false" columns="user_id"/>
+    </table>
+    <table name="market_company" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="quantity" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="available_stock" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="profit_loss" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="percentage" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="base_price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="market_newseffect_company_id_748ece0789bd7ea4_fk" table="market_newseffect" schema="" catalog="stock_db" columns="company_id"/>
+      <exported-key name="market_owner_company_id_373a165150269ca4_fk" table="market_owner" schema="" catalog="stock_db" columns="company_id"/>
+      <exported-key name="market_stoc_stock_owned_id_6f7b0cfe3a0f3714_fk_market_company_id" table="market_stockowner" schema="" catalog="stock_db" columns="stock_owned_id"/>
+      <exported-key name="market_transaction_company_id_5b1bbbe7afe31367_fk" table="market_transaction" schema="" catalog="stock_db" columns="company_id"/>
+    </table>
+    <table name="market_news" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="news_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="news" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="market_newseffect_news_id_1644f12f69841c9b_fk_market_news_id" table="market_newseffect" schema="" catalog="stock_db" columns="news_id"/>
+    </table>
+    <table name="market_newseffect" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="profitOrLoss" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="percentage" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="company_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="news_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="market_newseffect_company_id_748ece0789bd7ea4_fk" columns="company_id" ref-table="market_company" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="market_newseffect_news_id_1644f12f69841c9b_fk_market_news_id" columns="news_id" ref-table="market_news" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="market_newseffect_company_id_748ece0789bd7ea4_fk" unique="false" columns="company_id"/>
+      <index name="market_newseffect_news_id_1644f12f69841c9b_fk_market_news_id" unique="false" columns="news_id"/>
+    </table>
+    <table name="market_owner" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gender" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="phone_number" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="company_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="market_owner_company_id_373a165150269ca4_fk" columns="company_id" ref-table="market_company" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="market_owner_user_id_267b2dc217ee9d59_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="market_owner_company_id_373a165150269ca4_fk" unique="false" columns="company_id"/>
+      <index name="market_owner_user_id_267b2dc217ee9d59_fk_auth_user_id" unique="false" columns="user_id"/>
+    </table>
+    <table name="market_stock_holder" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gender" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="phone" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hard_asset" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="soft_asset" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="profit_loss" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="total_asset" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="market_stock_holder_user_id_4a9f6408c56f2d28_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="market_stock_owner_id_2c182da72a31566b_fk_market_stock_holder_id" table="market_stockowner" schema="" catalog="stock_db" columns="owner_id"/>
+      <exported-key name="market_transa_user_id_54c3287765ff641c_fk_market_stock_holder_id" table="market_transaction" schema="" catalog="stock_db" columns="user_id"/>
+      <index name="market_stock_holder_user_id_4a9f6408c56f2d28_fk_auth_user_id" unique="false" columns="user_id"/>
+    </table>
+    <table name="market_stockowner" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="number_of_stock" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="owner_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="stock_owned_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="market_stoc_stock_owned_id_6f7b0cfe3a0f3714_fk_market_company_id" columns="stock_owned_id" ref-table="market_company" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="market_stock_owner_id_2c182da72a31566b_fk_market_stock_holder_id" columns="owner_id" ref-table="market_stock_holder" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="market_stoc_stock_owned_id_6f7b0cfe3a0f3714_fk_market_company_id" unique="false" columns="stock_owned_id"/>
+      <index name="market_stock_owner_id_2c182da72a31566b_fk_market_stock_holder_id" unique="false" columns="owner_id"/>
+    </table>
+    <table name="market_transaction" schema="" catalog="stock_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="num_shares" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cost_per_share" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="broker_id_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="company_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="buy_sell" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="market_transa_user_id_54c3287765ff641c_fk_market_stock_holder_id" columns="user_id" ref-table="market_stock_holder" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="market_transac_broker_id_id_57dfa29150cb6323_fk_market_broker_id" columns="broker_id_id" ref-table="market_broker" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="market_transaction_company_id_5b1bbbe7afe31367_fk" columns="company_id" ref-table="market_company" ref-schema="" ref-catalog="stock_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="market_transa_user_id_54c3287765ff641c_fk_market_stock_holder_id" unique="false" columns="user_id"/>
+      <index name="market_transac_broker_id_id_57dfa29150cb6323_fk_market_broker_id" unique="false" columns="broker_id_id"/>
+      <index name="market_transaction_company_id_5b1bbbe7afe31367_fk" unique="false" columns="company_id"/>
+    </table>
+  </data-source>
+</component>

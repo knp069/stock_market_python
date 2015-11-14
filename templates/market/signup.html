@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>signup</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static "dist/css/bootstrap.min.css" %}">
+        <script type="text/javascript" src="{% static "dist/js/jquery.js" %}"></script>
+        <script type="text/javascript" src="{% static "dist/js/bootstrap.min.js" %}"></script>
+        <style>
+            body{
+                background-color: #6a5a8c;
+            }
+            .container .row .col-md-6 form{
+                background-color: transparent;
+                padding: 20px;
+                border: 2px solid white;
+                border-radius: 10px;;
+            }
+            .container .row .col-md-6 form input{
+                height: 60px;
+                font-size: 30px;
+            }
+            .container .form {
+                margin-top: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/stocks/">Stocks</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="main-navbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/stocks/broker-login">BROKER LOGIN</a>
+                                </li>
+                                <li>
+                                    <a href="/stocks/owner-login">OWNER LOGIN</a>
+                                </li>
+                                <li>
+                                    <a href="/stocks/user-login">STOCK HOLDER LOGIN</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SIGNUP <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/stocks/broker-signup">BROKER SIGNUP</a>
+                                </li>
+                                <li>
+                                    <a href="/stocks/owner-signup">OWNER SIGNUP</a>
+                                </li>
+                                <li>
+                                    <a href="/stocks/user-signup">STOCK HOLDER SIGNUP</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% if c == 1 %}
+            <p>{{ error_msg }}</p>
+        {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <form role="form" method="post" action="/stocks/user-signup/">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>USERNAME</label>
+                            <input type="text" class="form-control" name="uname">
+                        </div>
+                        <div class="form-group">
+                            <label>EMAIL</label>
+                            <input type="text" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>GENDER</label>
+                            <input type="text" class="form-control" name="gender" placeholder="enter male or female">
+                        </div>
+                        <div class="form-group">
+                            <label>PHONE NUMBER</label>
+                            <input type="text" class="form-control" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label>PASSWORD</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <button class="btn btn-lg btn-primary" type="submit">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
